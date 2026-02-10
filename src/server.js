@@ -50,7 +50,6 @@ app.get("/", (_req, res) => {
   res.json({
     is_success: true,
     official_email: OFFICIAL_EMAIL,
-    message: "Bajaj Qualifier API is running. Use POST /bfhl or GET /health.",
   });
 });
 

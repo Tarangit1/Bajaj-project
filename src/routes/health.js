@@ -9,7 +9,7 @@ const { OFFICIAL_EMAIL } = require("../config");
 
 const router = Router();
 
-router.get("/", (_req, res) => {
+router.get("/health", (_req, res) => {
   return res.status(200).json({
     is_success: true,
     official_email: OFFICIAL_EMAIL,
