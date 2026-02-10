@@ -64,10 +64,12 @@ app.use((_req, _res, next) => {
 // ── 7. Global error handler (MUST be last) ───
 app.use(errorHandler);
 
-// ── Start listening ──────────────────────────
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`official_email = ${OFFICIAL_EMAIL}`);
-});
+// ── Start listening (only when not in serverless) ──
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`official_email = ${OFFICIAL_EMAIL}`);
+  });
+}
 
-module.exports = app; // export for testing
+module.exports = app; // export for Vercel & testing
