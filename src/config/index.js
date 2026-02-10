@@ -7,7 +7,10 @@
 
 require("dotenv").config();
 
-const REQUIRED = ["OFFICIAL_EMAIL", "GEMINI_API_KEY"];
+// Hardcoded official email (not from env)
+const OFFICIAL_EMAIL = "tarangit0904.be23@chitkara.edu.in";
+
+const REQUIRED = ["GEMINI_API_KEY"];
 
 for (const key of REQUIRED) {
   if (!process.env[key]) {
@@ -18,6 +21,6 @@ for (const key of REQUIRED) {
 
 module.exports = {
   PORT: parseInt(process.env.PORT, 10) || 3000,
-  OFFICIAL_EMAIL: process.env.OFFICIAL_EMAIL,
+  OFFICIAL_EMAIL,
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
 };
